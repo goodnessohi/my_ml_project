@@ -24,5 +24,6 @@ class DataTransformation:
         try:
             numerical_columns = ['reading score', 'writing score']
             categorical_columns = ['gender', 'race/ethnicity', 'parental level of education', 'lunch', 'test preparation course']
+            logging.info('loaded the categorical and numerical columns into the respective variables')
         except:
             pass
