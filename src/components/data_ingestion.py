@@ -22,7 +22,7 @@ class DataIngestion:
             df = pd.read_csv('notebook\Dataset\StudentsPerformance.csv')
            
             logging.info('Read the dataset into a dataframe') #This gives information on what is going on at this point, and also helps to know what line is giving an issue in the case an exception occurs.
-            os.makedirs(os.path.dirname(self.ingestion_config.train_data_path)exist_ok=True)
+            os.makedirs(os.path.dirname(self.ingestion_config.train_data_path),exist_ok=True)
 
             df.to_csv(self.ingestion_config.raw_data_path, index=False,header=True)
 
