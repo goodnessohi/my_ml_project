@@ -4,9 +4,9 @@ import pandas as pd
 
 from sklearn.preprocessing import StandardScaler
 from src.pipeline.predict_pipeline import CustomData, PredictPipeline
+from src.logger import logging
 
-application = __name__
-app = application
+application = app = Flask(__name__)
 
 ##Route for Home page
 @app.route('/')
@@ -29,8 +29,11 @@ def predict_datapoint():
         )
         pred_df = data.get_data_as_df()
         print(pred_df)
-
+        logging.info(pred_df)
         predict_pipeline = PredictPipeline()
         results = predict_pipeline.predict(pred_df)
         
         return render_template('home.html', results=results[0])
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0",port=5000, debug=True)
